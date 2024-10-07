@@ -1,0 +1,9 @@
+{
+    "game": "RhythMidi DDR Example",
+    "manifestVersion": 1,
+    "title": "The Pixel Pirates",
+    "artist": "Eric Yoon",
+    "mapper": "Yoonicode",
+    "midi": "ExampleChart.mid",
+    "track": "ExampleChart.mp3"
+}

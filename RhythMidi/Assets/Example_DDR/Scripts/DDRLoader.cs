@@ -8,10 +8,21 @@ using RhythMidi;
 
 public class DDRLoader : MonoBehaviour
 {
+    /*
+        MIDI MAP:
+        24 - Triggers every beat (C1)
+        36 - Left (C2)
+        37 - Down (C#2)
+        38 - Up (D2)
+        39 - Right (D#2)
+    */
+
+
     [Header("References")]
     public RhythMidiController rhythMidi;
     public HitWindow hitWindow;
     public Transform canvas;
+    public AudioClip hitSound;
 
     [Header("Settings")]
     public string chartToPlayName = "ExampleChart";
@@ -94,13 +105,16 @@ public class DDRLoader : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftArrow) && hitWindow.CheckHit(36))
+        bool hit = false;
+        if(Input.GetKeyDown(KeyCode.LeftArrow) && hitWindow.CheckHit(36)) hit = true;
+        if(Input.GetKeyDown(KeyCode.DownArrow) && hitWindow.CheckHit(37)) hit = true;
+        if(Input.GetKeyDown(KeyCode.UpArrow) && hitWindow.CheckHit(38)) hit = true;
+        if(Input.GetKeyDown(KeyCode.RightArrow) && hitWindow.CheckHit(39)) hit = true;
+
+        if(hit)
+        {
             Instantiate(positiveFeedbackPrefab, feedbackOrigin);
-        if(Input.GetKeyDown(KeyCode.DownArrow) && hitWindow.CheckHit(37))
-            Instantiate(positiveFeedbackPrefab, feedbackOrigin);
-        if(Input.GetKeyDown(KeyCode.UpArrow) && hitWindow.CheckHit(38))
-            Instantiate(positiveFeedbackPrefab, feedbackOrigin);
-        if(Input.GetKeyDown(KeyCode.RightArrow) && hitWindow.CheckHit(39))
-            Instantiate(positiveFeedbackPrefab, feedbackOrigin);
+            AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position);
+        }
     }
 }

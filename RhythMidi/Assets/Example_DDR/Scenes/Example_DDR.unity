@@ -622,6 +622,7 @@ MonoBehaviour:
   rhythMidi: {fileID: 1112731122}
   hitWindow: {fileID: 1112731125}
   canvas: {fileID: 367289496}
+  hitSound: {fileID: 8300000, guid: 6d8aa3bd965e34a3aa7f7c34fd23bac6, type: 3}
   chartToPlayName: The Pixel Pirates
   fallingNotesTime: 1
   leftNotePrefab: {fileID: 4697064084324009323, guid: 58ee51079ae57423a98612dfa159a42a, type: 3}
@@ -734,6 +735,7 @@ GameObject:
   - component: {fileID: 595827797928213119}
   - component: {fileID: 4650408043883328129}
   - component: {fileID: 4650408043883328130}
+  - component: {fileID: 4650408043883328131}
   m_Layer: 5
   m_Name: Up
   m_TagString: Untagged
@@ -753,6 +755,7 @@ GameObject:
   - component: {fileID: 5014239826508452346}
   - component: {fileID: 595797811629086735}
   - component: {fileID: 5014239826508452347}
+  - component: {fileID: 5014239826508452348}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -1019,6 +1022,21 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 5, y: 5}
   m_UseGraphicAlpha: 0
+--- !u!114 &4650408043883328131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357073434357619543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5284452d66ec14fa48d597ee76d2d863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToBop: 0.2
+  bopSize: 0.8
+  rhythMidi: {fileID: 1112731122}
 --- !u!1 &4697064085882964415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,6 +1108,21 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 5, y: 5}
   m_UseGraphicAlpha: 0
+--- !u!114 &5014239826508452348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588112461711506732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5284452d66ec14fa48d597ee76d2d863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToBop: 0.2
+  bopSize: 0.8
+  rhythMidi: {fileID: 1112731122}
 --- !u!224 &5825676490831269426
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1121,6 +1154,7 @@ GameObject:
   - component: {fileID: 3525608686549092343}
   - component: {fileID: 7788724505045381044}
   - component: {fileID: 7788724505045381045}
+  - component: {fileID: 7788724505045381046}
   m_Layer: 5
   m_Name: Down
   m_TagString: Untagged
@@ -1207,6 +1241,7 @@ GameObject:
   - component: {fileID: 1653555384567508980}
   - component: {fileID: 2579045378697907855}
   - component: {fileID: 7654052302828194540}
+  - component: {fileID: 7654052302828194541}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -1229,6 +1264,21 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 5, y: 5}
   m_UseGraphicAlpha: 0
+--- !u!114 &7654052302828194541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7654052302828194539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5284452d66ec14fa48d597ee76d2d863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToBop: 0.2
+  bopSize: 0.8
+  rhythMidi: {fileID: 1112731122}
 --- !u!114 &7788724505045381044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1274,6 +1324,21 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 5, y: 5}
   m_UseGraphicAlpha: 0
+--- !u!114 &7788724505045381046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6671222756160776848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5284452d66ec14fa48d597ee76d2d863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToBop: 0.2
+  bopSize: 0.8
+  rhythMidi: {fileID: 1112731122}
 --- !u!1 &8159777171090679582
 GameObject:
   m_ObjectHideFlags: 0

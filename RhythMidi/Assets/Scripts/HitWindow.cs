@@ -20,15 +20,10 @@ namespace RhythMidi
 
         public UnityAction<Note> OnNoteMissed { get; set; } = delegate {};
 
-        void InitializeRhythMidi()
+        void Start()
         {
             rhythMidi.CreateNoteNotifier(coyoteTimeTooEarly).OnNote += NoteEnterHitWindow;
             rhythMidi.CreateNoteNotifier(-coyoteTimeTooLate).OnNote += NoteExitHitWindow;
-        }
-
-        void Start()
-        {
-            rhythMidi.onFinishedLoading.AddListener(InitializeRhythMidi);
         }
 
         public bool CheckHit(int noteNum, bool removeIfHit = true)

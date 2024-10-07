@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
 using RhythMidi;
+using UnityEngine.Events;
+using System.IO;
 
 public class DDRLoader : MonoBehaviour
 {
@@ -23,9 +25,11 @@ public class DDRLoader : MonoBehaviour
     public HitWindow hitWindow;
     public Transform canvas;
     public AudioClip hitSound;
+    public GameObject startGameButton;
 
     [Header("Settings")]
-    public string chartToPlayName = "ExampleChart";
+    public string chartToPlayName = "The Pixel Pirates";
+    public string chartDirectoryName = "ExampleChart";
     public float fallingNotesTime = 1f;
 
     [Header("Prefabs")]
@@ -50,7 +54,15 @@ public class DDRLoader : MonoBehaviour
     void Start()
     {
         hitWindow.OnNoteMissed += OnNoteMissed;
+        
+        // Workaround for WebGL where System.IO GetDirectories is not available
+        UnityEvent loaded = new UnityEvent();
+        loaded.AddListener(() => startGameButton.SetActive(true));
+        string path = Path.Combine(Application.streamingAssetsPath, "Charts", chartDirectoryName);
+        rhythMidi.LoadChart(path, loaded);
+
         rhythMidi.onFinishedLoading.AddListener(StartGame);
+        rhythMidi.CreateNoteNotifier(fallingNotesTime).OnNote += SpawnSprite;
     }
 
     void OnNoteMissed(Note note)
@@ -61,9 +73,9 @@ public class DDRLoader : MonoBehaviour
 
     public void StartGame()
     {
-        rhythMidi.CreateNoteNotifier(fallingNotesTime).OnNote += SpawnSprite;
         rhythMidi.PrepareChart(chartToPlayName);
         rhythMidi.PlayChart();
+        startGameButton.SetActive(false);
     }
 
     private void SpawnSprite(Note note)

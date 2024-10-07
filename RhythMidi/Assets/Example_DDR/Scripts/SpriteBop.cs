@@ -15,14 +15,9 @@ public class SpriteBop : MonoBehaviour
     Vector3 bopEnd;
     void Start()
     {
-        rhythMidi.onFinishedLoading.AddListener(OnRhythMidiLoaded);
+        rhythMidi.CreateNoteNotifier(0f).OnNote += OnNote;
         bopStart = transform.localScale;
         bopEnd = bopStart * bopSize;
-    }
-
-    void OnRhythMidiLoaded()
-    {
-        rhythMidi.CreateNoteNotifier(0f).OnNote += OnNote;
     }
 
     void OnNote(Note note)

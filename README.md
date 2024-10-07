@@ -4,6 +4,12 @@
 - Simple event-based note system
 - Hit window system for easy note detection
 
+![Logic Pro MIDI editor](./resources/logic.png)
+
+![Musescore MIDI editor](./resources/musescore.png)
+
+<img src="./resources/game.png" alt="Demo gameplay" width="300">
+
 ## Getting Started
 Download the `RhythMidi` folder and open it in Unity. Open the example scene in `RhythMidi/Assets/Example_DDR/Scenes/Example_DDR.unity`.
 

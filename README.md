@@ -88,6 +88,26 @@ The MIDI file MUST contain exactly one tempo event. Support for switching tempos
 #### Audio
 The audio file is any format that Unity can natively play. It should line up exactly with the timing of your MIDI file.
 
+## Additional Features
+
+### Filters
+You can optionally pass a filter function when you create a Note Notifier. This will make it so that only notes that pass the filter will be triggered.
+
+Add a filter like this:
+```c#
+void MyFilter(Note note)
+{
+    // Only return true for notes C1 to D#1
+    return note.noteNum >= 36 && note.noteNum <= 40;
+}
+
+void Start()
+{
+    // nn will call its callback only when a note in the range C1 to D#1 is triggered
+    NoteNotifier nn = rhythMidi.CreateNoteNotifier(0f, MyFilter);
+}
+```
+
 ## Credits and Contribution
 Contributions welcome. Made by [Eric Yoon](https://yoonicode.com).
 

@@ -32,18 +32,24 @@ namespace RhythMidi
         public float TimeInAdvance { get; private set; }
         public UnityAction<Note> OnNote { get; set; }
         public Queue<Note> Notes { get; private set;}
+        RhythMidiController.NoteFilter noteFilter;
 
-        public NoteNotifier(float timeInAdvance)
+        public NoteNotifier(float timeInAdvance, RhythMidiController.NoteFilter noteFilter = null)
         {
             TimeInAdvance = timeInAdvance;
             Notes = new Queue<Note>();
             OnNote = delegate {};
+            this.noteFilter = noteFilter;
         }
 
         public void EnqueueNotes(IEnumerable<Note> noteList)
         {
             Notes.Clear();
-            foreach(Note note in noteList) Notes.Enqueue(note);
+            foreach(Note note in noteList)
+            {
+                if(noteFilter != null && !noteFilter(note)) continue;
+                Notes.Enqueue(note);
+            }
         }
 
         public void Clear()
@@ -70,6 +76,8 @@ namespace RhythMidi
         private ChartResource currentChart;
         private MidiFile midiData;
         public TempoMap CurrentTempoMap { get; private set; }
+
+        public delegate bool NoteFilter(Note note);
 
         private void Start()
         {
@@ -260,9 +268,9 @@ namespace RhythMidi
         /// </summary>
         /// <param name="timeInAdvance">The number of seconds to look ahead. This can be negative.</param>
         /// <returns>A note notifier. Add a listener to the OnNote property.</returns>
-        public NoteNotifier CreateNoteNotifier(float timeInAdvance)
+        public NoteNotifier CreateNoteNotifier(float timeInAdvance, NoteFilter noteFilter = null)
         {
-            NoteNotifier noteNotifier = new NoteNotifier(timeInAdvance);
+            NoteNotifier noteNotifier = new NoteNotifier(timeInAdvance, noteFilter);
             noteNotifiers.Add(noteNotifier);
             return noteNotifier;
         }

@@ -114,5 +114,4 @@ Contributions welcome. Made by [Eric Yoon](https://yoonicode.com).
 See license in `LICENSE`. You may use this SDK for development of any game. But, if you are going to make improvements to the SDK itself (not just using it in your game), please make your changes public.
 
 ### Games using RhythMidi
-- Upcoming Yoonicode rhythm game
-- Your game here!
+- [_Encore!_ by Amoriem Labs](https://amoriem-labs.itch.io/encore), Yale University's game dev club
